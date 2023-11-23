@@ -15,7 +15,8 @@
     $_POST['edad'],
     $_POST['correo'], 
     $_POST['celular'],
-    $_POST['password']);
+    $_POST['password'],
+    $_POST['id']);
   
 
     ?>

@@ -1,9 +1,10 @@
 <?php
-require_once("C://xampp/htdocs/GYM/vistas/head/head.php");
+
 require_once("C://xampp/htdocs/GYM/controladores/controladorusuarios.php");
 
 $obj = new controladorusuarios();
 $date = $obj->show($_GET['id']);
+require_once("C://xampp/htdocs/GYM/vistas/head/head.php");
 ?>
 
 <div class="container mt-4">
@@ -46,6 +47,7 @@ $date = $obj->show($_GET['id']);
                 <th scope="col">Correo</th>
                 <th scope="col">Celular</th>
                 <th scope="col">Contraseña</th>
+                <th scope="col">Plan</th>
                  <!--<th scope="col">ID Plan</th>-->
             </tr>
         </thead>
@@ -60,6 +62,7 @@ $date = $obj->show($_GET['id']);
                 <td scope="col"><?=$date[6]?></td>
                 <td scope="col"><?=$date[7]?></td>
                 <td scope="col"><?=$date[8]?></td>
+                <td scope="col"><?=$date[9]?></td>
             </tr>
         </tbody>
     </table>

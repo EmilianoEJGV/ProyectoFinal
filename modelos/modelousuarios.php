@@ -15,12 +15,10 @@ class modelousuarios  {
     }
 
 
-  
-
    // Definición de la consulta SQL para la inserción de un nuevo usuario
-    public function insertar($primernombre, $segundonombre, $primerapellido, $segundoapellido, $edad, $correo, $celular, $password) {
+    public function insertar($primernombre, $segundonombre, $primerapellido, $segundoapellido, $edad, $correo, $celular, $password,$idplan) {
         $query = "INSERT INTO tbl_usuarios 
-        VALUES (null, :primernombre, :segundonombre, :primerapellido, :segundoapellido, :edad, :correo, :celular, :password)";
+        VALUES (null, :primernombre, :segundonombre, :primerapellido, :segundoapellido, :edad, :correo, :celular, :password, :idplan)";
     
     //Se prepara la consulta SQL utilizando el objeto de conexión PDO almacenado en la propiedad $this->conexion.
         $statement = $this->conexion->getConnection()->prepare($query);
@@ -33,6 +31,7 @@ class modelousuarios  {
         $statement->bindParam(":correo", $correo);
         $statement->bindParam(":celular", $celular);
         $statement->bindParam(":password", $password);
+        $statement->bindParam(":idplan", $idplan);
 
 
 
@@ -63,10 +62,10 @@ class modelousuarios  {
 
 
     //Preparación de la consulta SQL para hacer una actualización de cualquiera de los datos del usuario
-    public function update ($id,$primernombre, $segundonombre, $primerapellido, $segundoapellido, $edad, $correo, $celular){
+    public function update ($id,$primernombre, $segundonombre, $primerapellido, $segundoapellido, $edad, $correo, $celular,$idplan){
 
         $statement=$this->conexion->getConnection()->prepare("UPDATE tbl_usuarios SET primernombre=:primernombre, segundonombre=:segundonombre, primerapellido=:primerapellido,
-        segundoapellido= :segundoapellido, edad=:edad, correo=:correo, celular=:celular WHERE id=:id ");
+        segundoapellido= :segundoapellido, edad=:edad, correo=:correo, celular=:celular , idplan=:idplan WHERE id=:id ");
         
         $statement->bindParam(":id", $id);
         $statement->bindParam(":primernombre", $primernombre);
@@ -76,6 +75,8 @@ class modelousuarios  {
         $statement->bindParam(":edad", $edad);
         $statement->bindParam(":correo", $correo);
         $statement->bindParam(":celular", $celular);
+        $statement->bindParam(":idplan", $idplan);
+        
         //$statement->bindParam(":Descp", $Descp);
         //$statement->bindParam("password", $password);
 
@@ -92,9 +93,25 @@ class modelousuarios  {
 
     }
 
+    public function planes(){
+        $statement = $this->conexion->getConnection()->prepare("SELECT id FROM tbl_planes");
+        return ($statement->execute()) ? $statement->fetchAll() : false;
+    }
 
+   /* public function planesU(){
+        $statement = $this->conexion->getConnection()->prepare("SELECT idplan FROM tbl_usuarios");
+        return ($statement->execute()) ? $statement->fetchAll() : false;
+    }*/
+
+    public function planesU(){
+        $statement = $this->conexion->getConnection()->prepare("SELECT DISTINCT idplan FROM tbl_usuarios");
+        return ($statement->execute()) ? $statement->fetchAll() : false;
+    }
     
-    
+
+
+   
+
     }
 
 ?>

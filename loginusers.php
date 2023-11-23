@@ -111,6 +111,11 @@ if ($_POST) {
                                 <a href="http://localhost/GYM/login.php" class="btn btn-danger btn-lg btn-delicate">Regresar</a>
 
                             </div>
+
+                                                            <!-- Hipervínculo para recuperar usuario -->
+                                <div class="mt-3 text-center">
+                                    <a href="recuperar_usuario.php" class="text-white">¿No recuerda su usuario?</a>
+                                </div>
                         </form>
                     </div>
                    

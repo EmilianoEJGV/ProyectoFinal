@@ -22,6 +22,7 @@
                 <th scope="col">Apellido paterno</th>
                 <th scope="col">Apellido Materno</th>
                 <th scope="col">Edad</th>
+                <th scope="col">Correo</th>
                 <th scope="col">Acciones</th>
             </tr>
         </thead>
@@ -35,6 +36,7 @@
                         <td><?=$row[3]?></td>
                         <td><?=$row[4]?></td>
                         <td><?=$row[5]?></td>
+                        <td><?=$row[6]?></td>
                         <td class="align-middle">
                             <a href="showU.php?id=<?=$row[0]?>" class="btn btn-primary"><i class="fa-sharp fa-solid fa-user"></i></a>
                             <a href="editU.php?id=<?=$row[0]?>" class="btn btn-secondary"><i class="fa-solid fa-rotate-right"></i></a>

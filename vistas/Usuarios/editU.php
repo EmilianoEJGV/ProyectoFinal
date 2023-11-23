@@ -4,6 +4,8 @@ require_once("C://xampp/htdocs/GYM/controladores/controladorusuarios.php");
 
 $obj = new controladorusuarios();
 $user = $obj->show($_GET['id']);
+$lista_tbl_planes = $obj->mostU();
+
 ?>
 
 <div class="container mt-4">
@@ -65,6 +67,23 @@ $user = $obj->show($_GET['id']);
                 <input type="text" name="celular" class="form-control" value="<?=$user[7]?>">
             </div>
         </div>
+
+        <div class="mb-3 row">
+    <label for="idplan" class="col-sm-2 col-form-label">Plan</label>
+    <div class="col-sm-10">
+        <select class="form-select form-select-sm" name="idplan" id="idplan">
+            <?php if ($lista_tbl_planes): ?>
+                <?php foreach ($lista_tbl_planes as $registro): ?>
+                    <option value="<?php echo $registro['idplan']; ?>" <?php echo ($user[9] == $registro['idplan']) ? 'selected' : ''; ?>>
+                        <?php echo $registro['idplan']; ?>
+                    </option>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <option value="">No hay planes disponibles</option>
+            <?php endif; ?>
+        </select>
+    </div>
+</div>
 
         <div class="mb-3 row">
             <div class="col-sm-10 offset-sm-2">

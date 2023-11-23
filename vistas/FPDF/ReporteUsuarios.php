@@ -83,7 +83,11 @@ if (!$conexion) {
     die("Error: Unable to establish a database connection.");
 }
 
-$consulta_reporte_usuarios = $conexion->getConnection()->prepare("SELECT primernombre, primerapellido, correo, edad, celular FROM tbl_usuarios");
+//$consulta_reporte_usuarios = $conexion->getConnection()->prepare("SELECT primernombre, primerapellido, correo, edad, celular FROM tbl_usuarios");
+$consulta_reporte_usuarios = $conexion->getConnection()->prepare("
+    SELECT u.primernombre, u.primerapellido, u.correo, u.edad, u.celular, p.nombredelplan
+    FROM tbl_usuarios u INNER JOIN tbl_planes p ON u.idplan = p.id");
+
 
 if ($consulta_reporte_usuarios) {
     $consulta_reporte_usuarios->execute();
@@ -97,7 +101,7 @@ if ($consulta_reporte_usuarios) {
         $pdf->Cell(80, 10, utf8_decode($datos_reporte['correo']), 1, 0, 'C', 0);
         $pdf->Cell(10, 10, utf8_decode($datos_reporte['edad']), 1, 0, 'C', 0);
         $pdf->Cell(30, 10, utf8_decode($datos_reporte['celular']), 1, 0, 'C', 0);
-        $pdf->Cell(60, 10, utf8_decode("Plan"), 1, 1, 'C', 0);
+        $pdf->Cell(60, 10, utf8_decode($datos_reporte["nombredelplan"]), 1, 1, 'C', 0);
     }
 } else {
     die("Error: Unable to prepare the statement.");

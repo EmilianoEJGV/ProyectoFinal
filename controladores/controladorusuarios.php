@@ -20,10 +20,10 @@ class controladorusuarios {
     }
 
 
-    public function guardar($primernombre, $segundonombre, $primerapellido, $segundoapellido, $edad, $correo, $celular, $password){
+    public function guardar($primernombre, $segundonombre, $primerapellido, $segundoapellido, $edad, $correo, $celular, $password, $idplan){
 
         // Llama al método insertar de la clase modelousuarios para guardar la información del usuario
-        $id=$this->model->insertar($primernombre, $segundonombre, $primerapellido, $segundoapellido, $edad, $correo, $celular, $password);
+        $id=$this->model->insertar($primernombre, $segundonombre, $primerapellido, $segundoapellido, $edad, $correo, $celular, $password,$idplan);
         // Verifica si la inserción fue exitosa y la manda a las vistas
         return($id!=false) ? header("Location:showU.php?id=".$id): header("Location:createU.php");
     
@@ -42,8 +42,8 @@ class controladorusuarios {
     }
 
 
-    public function update($id, $primernombre, $segundonombre, $primerapellido, $segundoapellido, $edad, $correo, $celular){
-        return($this->model->update($id, $primernombre, $segundonombre, $primerapellido, $segundoapellido, $edad, $correo, $celular) 
+    public function update($id, $primernombre, $segundonombre, $primerapellido, $segundoapellido, $edad, $correo, $celular,$idplan){
+        return($this->model->update($id, $primernombre, $segundonombre, $primerapellido, $segundoapellido, $edad, $correo, $celular,$idplan) 
         != false) ? header("Location:showU.php?id=".$id) : header("Location.indexU.php");
     }
 
@@ -55,6 +55,15 @@ class controladorusuarios {
         return ($this->model->delete($id)) ? header("Location:indexU.php") : header("Location:showU.php?id=".$id);
     }
 
+    public function most(){
+        return $this->model->planes();
+    }
+
+    public function mostU(){
+        return $this->model->planesU();
+    }
+   
+
 
     public function getUltimoResultado() {
         return $this->ultimoResultado;
@@ -63,6 +72,7 @@ class controladorusuarios {
     public function setUltimoResultado($resultado) {
         $this->ultimoResultado = $resultado;
     }
+
     
 
 }

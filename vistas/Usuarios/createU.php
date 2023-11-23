@@ -1,5 +1,9 @@
 <?php
     require_once("C://xampp/htdocs/GYM/vistas/head/head.php");
+    require_once("C://xampp/htdocs/GYM/controladores/controladorusuarios.php");
+
+    $obj = new controladorusuarios();
+    $lista_tbl_planes = $obj->most();
 ?>
 
 
@@ -31,6 +35,25 @@
 
             <label for="exampleInputEmail1" class="form-label">contraseña</label>
             <input type="text" name="password" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+
+            
+
+            <div class="mb-3">
+        <label for="id" class="form-label">Plan</label>
+        <select class="form-select form-select-sm" name="id" id="id">
+            <?php if ($lista_tbl_planes): ?>
+                <?php foreach ($lista_tbl_planes as $registro): ?>
+                    <option value="<?php echo $registro['id']; ?>"><?php echo $registro['id']; ?></option>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <option value="">No hay planes disponibles</option>
+            <?php endif; ?>
+        </select>
+    </div>
+
+
+
+    </div>
 
 
         </div>

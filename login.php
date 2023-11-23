@@ -33,7 +33,6 @@ if ($_POST) {
 ?>
 
 
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -75,7 +74,7 @@ if ($_POST) {
                                     aria-describedby="helpId" placeholder="Digite su contraseña">
                             </div>
 
-                           <div class="d-grid gap-2">
+                            <div class="d-grid gap-2">
                                 <button type="submit" class="btn btn-outline-dark btn-lg btn-block custom-btn custom-dark-btn">Iniciar sesión</button>
                                 <a href="loginusers.php" class="btn btn-outline-primary btn-lg btn-block mt-2 custom-btn custom-primary-btn">¿No eres empleado?</a>
                             </div>
@@ -86,6 +85,8 @@ if ($_POST) {
             </div>
         </div>
     </main>
+
+   
 
     <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
@@ -100,14 +101,14 @@ if ($_POST) {
 
 <style>
     .custom-header {
-        background-color: #082c54; /* Cambia el color de fondo a un tono de azul oscuro */
-        color: #ffffff; /* Cambia el color del texto a blanco */
+        background-color: #082c54; /* Change the background color to a dark blue tone */
+        color: #ffffff; /* Change the text color to white */
         padding: 20px;
     }
 
     .custom-body {
-        background-color: rgba(255, 255, 255, 0.8); /* Cambia el color de fondo a un tono blanco transparente */
-        color: #000000; /* Cambia el color del texto a negro */
+        background-color: rgba(255, 255, 255, 0.8); /* Change the background color to a transparent white tone */
+        color: #000000; /* Change the text color to black */
         padding: 20px;
     }
 
@@ -120,12 +121,13 @@ if ($_POST) {
     }
 
     .custom-dark-btn {
-        background-color: #343a40; /* Cambia el color de fondo del botón de inicio de sesión */
-        color: #ffffff; /* Cambia el color del texto a blanco */
+        background-color: #343a40; /* Change the background color of the login button */
+        color: #ffffff; /* Change the text color to white */
     }
 
     .custom-primary-btn {
-        background-color: #007bff; /* Cambia el color de fondo del botón de "No eres empleado" */
-        color: #ffffff; /* Cambia el color del texto a blanco */
+        background-color: #007bff; /* Change the background color of the "Not an employee" button */
+        color: #ffffff; /* Change the text color to white */
     }
 </style>
+

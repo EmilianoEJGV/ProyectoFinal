@@ -41,8 +41,8 @@ require_once("C://xampp/htdocs/GYM/vistas/head/head.php");
                 <th scope="col">ID</th>
                 <th scope="col">Primer Nombre</th>
                 <th scope="col">Segundo Nombre</th>
-                <th scope="col">Apellido paterno</th>
                 <th scope="col">Apellido materno</th>
+                <th scope="col">Apellido paterno</th>
                 <th scope="col">Edad</th>
                 <th scope="col">Correo</th>
                 <th scope="col">Celular</th>

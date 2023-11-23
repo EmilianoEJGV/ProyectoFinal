@@ -49,7 +49,9 @@ class modelousuarios2 {
         $usuarioLog = $_SESSION['primernombre'];
 
         // Paso 2: Preparación y ejecución de la consulta SQL para la bd
-        $query = "SELECT * FROM tbl_usuarios WHERE primernombre = :usuarioLog";
+        $query = "SELECT u.*, p.nombredelplan FROM tbl_usuarios u 
+        INNER JOIN tbl_planes p ON u.idplan = p.id 
+        WHERE u.primernombre = :usuarioLog";
         $statement = $this->conexion->getConnection()->prepare($query);
         $statement->bindParam(":usuarioLog", $usuarioLog, PDO::PARAM_STR); //PDO::PARAM_STR: Indica que el parámetro es de tipo cadena (string).
       

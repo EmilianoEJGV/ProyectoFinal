@@ -75,9 +75,10 @@
                         <td><?= isset($row['password']) ? $row['password'] : '' ?></td>
                     </tr>
                     <tr class="table-success">
-                        <td>Plan:</td>
-                        <td><?= isset($row['idplan']) ? $row['idplan'] : '' ?></td>
-                    </tr>
+                            <td>Plan:</td>
+                            <td><?= isset($row['nombredelplan']) ? $row['nombredelplan'] : '' ?></td>
+                        </tr>
+
                     <tr class="table-success">
                         <td>Acciones:</td>
                         <td class="text-center align-middle">

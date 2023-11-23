@@ -75,7 +75,7 @@ $lista_tbl_planes = $obj->mostU();
             <?php if ($lista_tbl_planes): ?>
                 <?php foreach ($lista_tbl_planes as $registro): ?>
                     <option value="<?php echo $registro['idplan']; ?>" <?php echo ($user[9] == $registro['idplan']) ? 'selected' : ''; ?>>
-                        <?php echo $registro['idplan']; ?>
+                        <?php echo $registro['idplan'] . ' - ' . $registro['nombredelplan']; ?>
                     </option>
                 <?php endforeach; ?>
             <?php else: ?>
@@ -84,6 +84,7 @@ $lista_tbl_planes = $obj->mostU();
         </select>
     </div>
 </div>
+
 
         <div class="mb-3 row">
             <div class="col-sm-10 offset-sm-2">

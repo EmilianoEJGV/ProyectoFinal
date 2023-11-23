@@ -14,15 +14,15 @@
             <input type="text" name="primernombre" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
 
 
-            <label for="exampleInputEmail1" class="form-label">Segundo Nombre</label>
-            <input type="text" name="segundonombre"  required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <label for="exampleInputEmail1" class="form-label">Segundo Nombre (Opcional)</label>
+            <input type="text" name="segundonombre"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
 
-            <label for="exampleInputEmail1" class="form-label">Primer Apellido</label>
+            <label for="exampleInputEmail1" class="form-label">Apellido materno</label>
             <input type="text" name="primerapellido"  required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
 
 
-            <label for="exampleInputEmail1" class="form-label">Segundo Apellido</label>
-            <input type="text" name="segundoapellido" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <label for="exampleInputEmail1" class="form-label">Apellido paterno (opcional)</label>
+            <input type="text" name="segundoapellido"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
 
             <label for="exampleInputEmail1" class="form-label">Edad</label>
             <input type="text" name="edad"  required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -37,19 +37,21 @@
             <input type="text" name="password" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
 
             
-
             <div class="mb-3">
-        <label for="id" class="form-label">Plan</label>
-        <select class="form-select form-select-sm" name="id" id="id">
-            <?php if ($lista_tbl_planes): ?>
-                <?php foreach ($lista_tbl_planes as $registro): ?>
-                    <option value="<?php echo $registro['id']; ?>"><?php echo $registro['id']; ?></option>
-                <?php endforeach; ?>
-            <?php else: ?>
-                <option value="">No hay planes disponibles</option>
-            <?php endif; ?>
-        </select>
-    </div>
+    <label for="id" class="form-label">Plan</label>
+    <select class="form-select form-select-sm" name="id" id="id">
+        <?php if ($lista_tbl_planes): ?>
+            <?php foreach ($lista_tbl_planes as $registro): ?>
+                <option value="<?php echo $registro['id']; ?>">
+                    <?php echo $registro['id'] . ' - ' . $registro['nombredelplan']; ?>
+                </option>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <option value="">No hay planes disponibles</option>
+        <?php endif; ?>
+    </select>
+</div>
+
 
 
 

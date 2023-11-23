@@ -97,7 +97,7 @@ if ($_POST) {
                             <div class="mb-3">
                                 <label for="primernombre" class="form-label">Cuenta Usuarios:</label>
                                 <input type="text" class="form-control" name="primernombre" id="primernombre"
-                                    aria-describedby="helpId" placeholder="Escriba su usuario">
+                                    aria-describedby="helpId" placeholder="Escriba su usuario: Emiliano">
                             </div>
                             <div class="mb-3">
                                 <label for="password" class="form-label">Contraseña:</label>

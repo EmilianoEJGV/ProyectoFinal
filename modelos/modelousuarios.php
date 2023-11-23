@@ -94,7 +94,7 @@ class modelousuarios  {
     }
 
     public function planes(){
-        $statement = $this->conexion->getConnection()->prepare("SELECT id FROM tbl_planes");
+        $statement = $this->conexion->getConnection()->prepare("SELECT id, nombredelplan FROM tbl_planes");
         return ($statement->execute()) ? $statement->fetchAll() : false;
     }
 
@@ -104,7 +104,9 @@ class modelousuarios  {
     }*/
 
     public function planesU(){
-        $statement = $this->conexion->getConnection()->prepare("SELECT DISTINCT idplan FROM tbl_usuarios");
+        $statement = $this->conexion->getConnection()->prepare("SELECT DISTINCT tbl_usuarios.idplan, tbl_planes.nombredelplan
+        FROM tbl_usuarios
+        INNER JOIN tbl_planes ON tbl_usuarios.idplan = tbl_planes.id;");
         return ($statement->execute()) ? $statement->fetchAll() : false;
     }
     

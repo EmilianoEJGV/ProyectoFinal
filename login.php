@@ -7,8 +7,6 @@ if ($_POST) {
     include("C://xampp/htdocs/GYM/BD/ConexionBD.php");
     $conexion = ConexionBD::getInstance();
 
-    
-
     $sentencia = $conexion->getConnection()->prepare("SELECT *,count(*) as n_recepcionista 
         FROM `tbl_recepcionistas` WHERE recepcionista=:recepcionista AND password=:password");
 
@@ -20,7 +18,7 @@ if ($_POST) {
 
     $sentencia->execute();
     $registro = $sentencia->fetch(PDO::FETCH_LAZY);
-    //print_r($lista_tbl_recepcionistas);
+
     if ($registro["n_recepcionista"] > 0) {
         $_SESSION['recepcionista'] = $registro["recepcionista"];
         $_SESSION['logueado'] = true;
@@ -31,7 +29,6 @@ if ($_POST) {
     }
 }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -66,12 +63,12 @@ if ($_POST) {
                             <div class="mb-3">
                                 <label for="recepcionista" class="form-label">Cuenta Empleados:</label>
                                 <input type="text" class="form-control" name="recepcionista" id="recepcionista"
-                                    aria-describedby="helpId" placeholder="Escriba su usuario: Roberto">
+                                    aria-describedby="helpId" placeholder="Escriba su usuario: Roberto" required>
                             </div>
                             <div class="mb-3">
                                 <label for="password" class="form-label">Contraseña:</label>
                                 <input type="password" class="form-control" name="password" id="password"
-                                    aria-describedby="helpId" placeholder="Digite su contraseña">
+                                    aria-describedby="helpId" placeholder="Digite su contraseña" required>
                             </div>
 
                             <div class="d-grid gap-2">
@@ -85,8 +82,6 @@ if ($_POST) {
             </div>
         </div>
     </main>
-
-   
 
     <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
@@ -130,4 +125,3 @@ if ($_POST) {
         color: #ffffff; /* Change the text color to white */
     }
 </style>
-

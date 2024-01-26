@@ -29,7 +29,6 @@ class controladorusuarios {
     
     }
 
-    
 
     public function show($id){
 
